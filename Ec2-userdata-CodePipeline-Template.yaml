@@ -32,7 +32,7 @@ Resources:
     Webserver:
         Type: AWS::EC2::Instance
         Properties:
-            ImageId: !Ref ImageID
+            ImageId: !Ref  ImageID
             InstanceType: !Ref InstanceType # Reference to the instance type param
             KeyName: !Ref KeyName
             SecurityGroupIds:
@@ -43,7 +43,7 @@ Resources:
 
             UserData:
                 Fn::Base64: |
-                    #!/bin/bash -xe
+                    #!/bin/bash
                     yum update -y 
                     yum install httpd -y
                     systemctl start httpd
